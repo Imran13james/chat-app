@@ -108,16 +108,22 @@ const AuthForm = () => {
     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
       <div 
         className="
-        bg-white
-          px-4
-          py-8
-          shadow
-          sm:rounded-lg
-          sm:px-10
+        dark:bg-gray-900 lg:bg-white 
+        px-4
+        py-8
+        shadow
+        sm:rounded-lg
+        sm:px-10
+        text-gray-100
+        border
+        border-gray-300
+        dark:border-gray-700
+        rounded
+        dark:text-gray-200
         "
       >
         <form 
-          className="space-y-6" 
+          className="space-y-6  text-gray-100" 
           onSubmit={handleSubmit(onSubmit)}
         >
           {variant === 'REGISTER' && (
@@ -165,7 +171,7 @@ const AuthForm = () => {
                 items-center
               "
             >
-              <div className="w-full border-t border-gray-300" />
+              <div className="w-full border-t border-yellow-800" />
             </div>
             <div className="relative flex justify-center text-sm">
               <span className="bg-white px-2 text-gray-500">

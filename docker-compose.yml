@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  livechat:
+    container_name: livechat
+    image: imranali13/livechat
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/app
+      - ./.env:/app/.env  # Mount the .env file
+    environment:
+      - PORT=3000
+      - MONGO_USER= imranali
+      - MONGO_DB= database
+      - MONGO_PASSWORD= imranali13
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:5.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+volumes:
+  mongo-data:
